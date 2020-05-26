@@ -1,4 +1,7 @@
 package main
+//
+// Goroutine variable visibility
+//
 
 import (
 "fmt"
