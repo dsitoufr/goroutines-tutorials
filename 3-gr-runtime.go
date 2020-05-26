@@ -1,5 +1,9 @@
 package main
 
+//
+// You can interrupt a GR and force another one to execute
+//
+
 import (
 "fmt"
 "runtime"
