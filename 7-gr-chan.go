@@ -1,5 +1,10 @@
 package main
 
+//
+// How to use channel directions here 
+// we test receive only channel
+//
+
 import (
     "fmt"
     "time"
