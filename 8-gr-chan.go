@@ -1,5 +1,9 @@
 package main
 
+//
+// How to control a GR with a boolean
+//
+
 import (
     "fmt"
     "time"
@@ -10,7 +14,7 @@ type Message struct {
     wait chan bool
 }
 
-func boring(msg string) <- chan Message {
+func Watching(msg string) <- chan Message {
 
   waitChan := make(chan bool)
   ch := make(chan Message)
@@ -26,7 +30,7 @@ func boring(msg string) <- chan Message {
   return ch
 }
 
-func fanin(a, b <- chan Message) <- chan Message {
+func allfan(a, b <- chan Message) <- chan Message {
     ch := make(chan Message)
 
     /*
@@ -58,7 +62,7 @@ func fanin(a, b <- chan Message) <- chan Message {
 
 func main() {
 
-    ch := fanin(boring("joe"), boring("jack"))
+    ch := allfan( Watching("joe"),  Watching("jack"))
 
     
    for i:= 0; i < 10; i++ {
