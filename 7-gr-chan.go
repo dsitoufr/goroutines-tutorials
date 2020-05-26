@@ -10,7 +10,7 @@ import (
     "time"
 )
 
-func watching(msg string) <- chan string {
+func Sending(msg string) <- chan string {
    c := make(chan string)
 
    go func() {
@@ -24,7 +24,7 @@ func watching(msg string) <- chan string {
 
 }
 
-func fanIn(input1, input2 <-chan string) <-chan string {
+func Merge(input1, input2 <-chan string) <-chan string {
     
     c := make(chan string)
 
@@ -44,7 +44,7 @@ func fanIn(input1, input2 <-chan string) <-chan string {
 }
 
 func main() {
-    c := fanIn(watching("Joe"), watching("Ann"))
+    c := Merge(Sending("Joe"), Sending("Ann"))
 
    // for i := 0; i < 10; i++ {
    //     fmt.Println(<-c)

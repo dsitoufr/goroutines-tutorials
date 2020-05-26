@@ -14,7 +14,7 @@ type Message struct {
     wait chan bool
 }
 
-func Watching(msg string) <- chan Message {
+func Sending(msg string) <- chan Message {
 
   waitChan := make(chan bool)
   ch := make(chan Message)
@@ -30,7 +30,7 @@ func Watching(msg string) <- chan Message {
   return ch
 }
 
-func allfan(a, b <- chan Message) <- chan Message {
+func mergeMsg(a, b <- chan Message) <- chan Message {
     ch := make(chan Message)
 
     /*
@@ -62,7 +62,7 @@ func allfan(a, b <- chan Message) <- chan Message {
 
 func main() {
 
-    ch := allfan( Watching("joe"),  Watching("jack"))
+    ch := mergeMsg( Sending("joe"),  Sending("jack"))
 
     
    for i:= 0; i < 10; i++ {

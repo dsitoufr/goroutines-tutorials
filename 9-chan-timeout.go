@@ -9,7 +9,7 @@ import (
     "time"
 )
 
-func watch(str string) <- chan string {
+func Sender(str string) <- chan string {
   
   ch := make(chan string) 
 
@@ -25,8 +25,10 @@ func watch(str string) <- chan string {
 
 func main() {
 
-   ch := watch("joe")
+   //sender
+   ch := Sender("joe")
 
+    //receiver
     go func() {
         for {
             select {

@@ -5,7 +5,7 @@ import (
     "time"
 )
 
-func watch(msg  string) <- chan string {
+func Sending(msg  string) <- chan string {
 
     c := make(chan string)
     go func() {
@@ -20,8 +20,8 @@ func watch(msg  string) <- chan string {
 
 func main() {
 
-    j := watch("joe")
-    k := watch("ken")
+    j := Sending("joe")
+    k := Sending("ken")
 
     for i := 0; i < 5; i++ {
         fmt.Println( <- j)
