@@ -32,7 +32,7 @@ func fanIn(input1, input2 <-chan string) <-chan string {
         for { 
               c <- <-input1
         } 
-    }()  // todo: why do we double the channel operator?
+    }()  
 
     go func() { 
         for { 
@@ -59,5 +59,5 @@ func main() {
     }()
 
     time.Sleep(10 * time.Millisecond)
-    fmt.Println("You're both boring; I'm leaving")
+    fmt.Println("Leaving mean program..!")
 }
