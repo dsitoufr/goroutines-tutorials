@@ -28,8 +28,21 @@ func main() {
     //To avoid ovewritting in channel
     //use use another channel c 
     // in < - 1 
+    
+     // c <- 1 
+    // or
+    //go func() {
+    //    c <- 1
+    //}() 
+    // or
 
-    c <- 1
+    go func(ch chan int) {
+           ch <- 1
+    }(c)
+
+     //last value is in channel
+     //fmt.Println(<- out)
+     fmt.Println(<- in ) 
 
      //last value is in channel
      //fmt.Println(<- out)
