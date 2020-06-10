@@ -49,6 +49,7 @@ func mergeMsg(a, b <- chan Message) <- chan Message {
     OR */
 
    go func() {
+       //loop on channel
        for {
            select {
                case  s := <- a:  ch <- s

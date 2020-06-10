@@ -28,12 +28,14 @@ func Merge(input1, input2 <-chan string) <-chan string {
     
     c := make(chan string)
 
+    // loop on channel
     go func() { 
         for { 
               c <- <-input1
         } 
     }()  
 
+    //loop on channel
     go func() { 
         for { 
              c <- <-input2 
